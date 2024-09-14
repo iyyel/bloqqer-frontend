@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import "./globals.css";
-import MainHeader from "./main-header";
+import { DrawerNav } from "./drawer-nav";
 
 export const metadata: Metadata = {
   title: "Bloqqer",
@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <MainHeader />
+        <DrawerNav />
         {children}
       </body>
     </html>

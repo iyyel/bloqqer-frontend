@@ -1,12 +1,10 @@
-interface Post {
+interface Comment {
   id: string
-  bloqId: string
+  postId: string
   authorId: string
-  title: string
-  description: string
+  bloqId: string
   content: string
   isPublished: boolean
   published?: Date
-  comments?: Comment[]
   reactions?: Reaction[]
 }

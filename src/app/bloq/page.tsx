@@ -1,7 +1,9 @@
-import { Feed } from "./feed";
+import { BloqFeed } from "./bloq-feed";
 
-const getBloqs = async (): Promise<Bloq[]> => {
-  const res = await fetch(`${process.env.BASE_APP_URL}/api/getBloqs`);
+const getAllBloqsMetadata = async (): Promise<BloqMetadata[]> => {
+  const res = await fetch(`${process.env.BASE_APP_URL}/api/getAllBloqsMetadata`, {
+    cache: "no-store",
+  });
   const json = await res.json();
 
   if (!json.success) {
@@ -12,10 +14,11 @@ const getBloqs = async (): Promise<Bloq[]> => {
 };
 
 export default async function BloqsPage() {
-  const bloqs: Bloq[] = await getBloqs();
+  const bloqs: BloqMetadata[] = await getAllBloqsMetadata();
   return (
     <main>
-      <Feed bloqs={bloqs} />
+      <h1>Bloqs</h1>
+      <BloqFeed bloqs={bloqs} />
     </main>
   );
 }

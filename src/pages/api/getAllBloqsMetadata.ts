@@ -5,7 +5,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const resp = await fetch(`${process.env.BASE_BLOQQER_BACKEND_URL}/bloq/all`)
+    const resp = await fetch(`${process.env.BASE_BLOQQER_BACKEND_URL}/bloq/metadata`)
     const data = await resp.json()
     return res.status(200).json(data);
   } catch (error) {
