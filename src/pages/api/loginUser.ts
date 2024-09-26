@@ -5,8 +5,12 @@ export default async function handler(
     res: NextApiResponse
 ) {
     try {
-        const response = await fetch(`${process.env.BASE_BLOQQER_BACKEND_URL}/bloq/metadata`, {
-            method: 'GET',
+        const response = await fetch(`https://localhost:7062/api/v1/user/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: req.body,
         })
 
         if (!response.ok) {
@@ -14,10 +18,10 @@ export default async function handler(
         }
 
         const data = await response.json()
-        return res.status(200).json(data)
+        return res.status(200).json(data);
     } catch (error: any) {
         const message = error instanceof Error ? error.message : 'Unknown error'
-        console.error('Error fetching metadata:', message)
+        console.error('Error logging in:', message)
         res.status(500).json({ error: message })
     }
 }

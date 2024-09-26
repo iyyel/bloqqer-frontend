@@ -2,9 +2,7 @@ import Link from "next/link";
 import { PostCards } from "./post-cards";
 
 const getBloqPosts = async (bloqId: string): Promise<Post[]> => {
-  const res = await fetch(`${process.env.BASE_APP_URL}/api/getBloqPosts?bloqId=${bloqId}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(`${process.env.BASE_APP_URL}/api/getBloqPosts?bloqId=${bloqId}`);
   const json = await res.json()
   console.log(json)
 

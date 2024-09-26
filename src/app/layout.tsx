@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import "./globals.css";
-import { DrawerNav } from "./drawer-nav";
+import './global.css';
 
 export const metadata: Metadata = {
   title: "Bloqqer",
@@ -9,15 +8,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body>
-        <DrawerNav />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -7,7 +7,7 @@ const getAllBloqsMetadata = async (): Promise<BloqMetadata[]> => {
   const json = await res.json();
 
   if (!json.success) {
-    throw new Error("Failed");
+    throw new Error(json.error);
   }
 
   return json.data;
